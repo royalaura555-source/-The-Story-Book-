@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="te">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>తొలిపరిచయం(The Story Book) — Telugu Story Book by Dasari Srikanth</title>
+  <meta name="description"
+    content="తొలిపరిచయం(The Story Book) — తెలుగు కథల పుస్తకం. పిల్లల కథలు, నీతి కథలు, భయానక కథలు, సాహస కథలు మరియు మరెన్నో. Written by Dasari Srikanth." />
+  <meta name="author" content="Dasari Srikanth" />
+  <meta name="keywords"
+    content="Telugu stories, తెలుగు కథలు, తొలిపరిచయం, The Story Book, Dasari Srikanth, kids stories, moral stories" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Ambient background particles -->
+  <div class="particles" id="particles"></div>
+
+  <!-- Toast notification container -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- ===== NAVIGATION MENU ===== -->
+  <nav class="main-nav" id="mainNav">
+    <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+    <div class="nav-overlay" id="navOverlay"></div>
+    <div class="nav-menu" id="navMenu">
+      <div class="nav-menu-header">
+        <img src="logo.png" alt="Logo" class="nav-logo-img" />
+        <span>తొలిపరిచయం</span>
+      </div>
+      <a class="nav-link active" data-nav="library">🏠 Home</a>
+      <a class="nav-link" data-nav="aboutAuthor">✍️ About Author</a>
+      <a class="nav-link" data-nav="contact">📬 Contact</a>
+    </div>
+  </nav>
+
+  <!-- ===== HOME / LIBRARY VIEW ===== -->
+  <section id="library" class="view active">
+    <header class="library-header">
+      <div class="header-top">
+        <div class="logo" id="logoHome">
+          <img src="logo.png" alt="తొలిపరిచయం Logo" class="logo-img" />
+          <div class="logo-text">
+            <h1>తొలిపరిచయం<span
+                style="font-size:0.5em;font-weight:400;opacity:0.8;display:block;font-family:var(--font-ui)">(The Story
+                Book)</span></h1>
+          </div>
+        </div>
+        <div class="header-controls">
+          <button id="themeToggle" class="icon-btn" aria-label="Toggle theme">
+            <span class="theme-icon">🌙</span>
+          </button>
+          <button id="adminLink" class="icon-btn admin-icon" aria-label="Admin Panel">
+            <span>🔐</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="writer-profile">
+        <img src="writer.png" alt="Dasari Srikanth" class="writer-avatar" />
+        <div class="writer-info">
+          <span class="writer-label">Written by</span>
+          <span class="writer-name">Dasari Srikanth</span>
+          <span class="writer-desc">Telugu Story Writer & Creator</span>
+        </div>
+      </div>
+
+      <p class="tagline">తెలుగు కథల ప్రపంచంలోకి స్వాగతం — Welcome to the world of Telugu Stories</p>
+    </header>
+
+    <!-- About the Writer Section -->
+    <div class="about-writer" id="aboutWriterSection">
+      <div class="about-writer-header">
+        <span class="about-writer-icon">✍️</span>
+        <h2>About the Writer</h2>
+      </div>
+      <div class="about-writer-content" id="aboutWriterContent">
+        <p><strong>Dasari Srikanth</strong> is a passionate Telugu story writer and creative storyteller who brings
+          imagination to life through captivating narratives.</p>
+        <p>🏆 <strong>Achievements:</strong> Recognized as an inspiring voice in modern Telugu literature, Dasari
+          Srikanth has touched thousands of hearts with stories that blend tradition, morality, and adventure.</p>
+        <p>❤️ <strong>Passion for Writing:</strong> With a deep love for the Telugu language and culture, Srikanth
+          crafts stories that resonate with readers of all ages — from children to adults. Every story is woven with
+          care, emotion, and purpose.</p>
+        <p>✨ <strong>Creativity & Storytelling:</strong> Known for vivid imagery, memorable characters, and powerful
+          moral lessons, Srikanth’s storytelling transforms simple tales into unforgettable experiences. From humorous
+          adventures to spine-tingling horror, every genre is mastered with finesse.</p>
+        <p>💡 <strong>Inspiration:</strong> Drawing inspiration from Telugu folklore, everyday life, and the rich
+          cultural heritage of India, Dasari Srikanth continues to inspire the next generation of readers and writers
+          through the magic of storytelling.</p>
+      </div>
+    </div>
+
+    <div class="search-bar">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="కథలు వెతకండి... Search stories..." autocomplete="off" />
+    </div>
+
+    <div class="category-pills" id="categoryPills">
+      <button class="pill active" data-category="all">📚 All</button>
+      <button class="pill" data-category="kids">👶 పిల్లల కథలు</button>
+      <button class="pill" data-category="moral">🎓 నీతి కథలు</button>
+      <button class="pill" data-category="horror">👻 భయానక కథలు</button>
+      <button class="pill" data-category="adventure">⚔️ సాహస కథలు</button>
+      <button class="pill" data-category="comedy">😂 హాస్య కథలు</button>
+      <button class="pill" data-category="inspirational">🌟 ప్రేరణాత్మక కథలు</button>
+    </div>
+
+    <div class="stories-grid" id="storiesGrid"></div>
+
+    <footer class="app-footer">
+      <p>© 2024 తొలిపరిచయం(The Story Book) | Written by <strong>Dasari Srikanth</strong></p>
+    </footer>
+  </section>
+
+  <!-- ===== READING VIEW ===== -->
+  <section id="reader" class="view">
+    <header class="reader-header">
+      <button id="backBtn" class="icon-btn" aria-label="Back to library">
+        <span>←</span>
+      </button>
+      <div class="reader-title" id="readerTitle"></div>
+      <div class="reader-controls">
+        <button id="likeBtn" class="icon-btn small action-btn" aria-label="Like story">
+          <span class="like-icon">🤍</span>
+        </button>
+        <button id="bookmarkBtn" class="icon-btn small action-btn" aria-label="Bookmark story">
+          <span class="bookmark-icon">🔖</span>
+        </button>
+        <button id="fontDown" class="icon-btn small" aria-label="Decrease font">A-</button>
+        <button id="fontUp" class="icon-btn small" aria-label="Increase font">A+</button>
+      </div>
+    </header>
+
+    <div class="reader-progress">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <article class="reader-body" id="readerBody">
+      <div class="story-cover" id="storyCover">
+        <div class="cover-overlay"></div>
+        <h2 id="storyCoverTitle"></h2>
+        <p id="storyCoverAuthor"></p>
+        <span id="storyCoverCategory" class="cover-badge"></span>
+      </div>
+      <div class="story-content" id="storyContent"></div>
+    </article>
+
+    <footer class="reader-footer">
+      <button id="prevPage" class="nav-btn" aria-label="Previous page">
+        <span>‹</span> Previous
+      </button>
+      <span class="page-indicator" id="pageIndicator">Page 1 of 1</span>
+      <button id="nextPage" class="nav-btn" aria-label="Next page">
+        Next <span>›</span>
+      </button>
+    </footer>
+  </section>
+
+  <!-- ===== ADMIN LOGIN VIEW ===== -->
+  <section id="adminLogin" class="view">
+    <header class="admin-header">
+      <button id="adminBackBtn" class="icon-btn" aria-label="Back to library">
+        <span>←</span>
+      </button>
+      <h2>🔐 Admin Login</h2>
+      <div></div>
+    </header>
+    <div class="admin-login-container">
+      <div class="login-card">
+        <div class="login-icon">🔑</div>
+        <h3>Admin Panel Access</h3>
+        <p>Enter the admin password to manage stories</p>
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="adminPassword">Password</label>
+            <input type="password" id="adminPassword" placeholder="Enter admin password..." required />
+          </div>
+          <button type="submit" class="btn-primary">Login →</button>
+        </form>
+        <p id="loginError" class="error-text" style="display:none;">❌ Incorrect password. Try again.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ADMIN DASHBOARD VIEW ===== -->
+  <section id="adminDashboard" class="view">
+    <header class="admin-header">
+      <button id="dashBackBtn" class="icon-btn" aria-label="Back to library">
+        <span>←</span>
+      </button>
+      <h2>📊 Admin Dashboard</h2>
+      <div class="admin-header-actions">
+        <button id="addStoryBtn" class="btn-primary">➕ Add New Story</button>
+        <button id="logoutBtn" class="btn-secondary">🚪 Logout</button>
+      </div>
+    </header>
+    <div class="dashboard-stats" id="dashboardStats"></div>
+    <div class="dashboard-content">
+      <div class="table-container">
+        <table class="stories-table" id="storiesTable">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Title</th>
+              <th>Category</th>
+              <th>Author</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="storiesTableBody"></tbody>
+        </table>
+      </div>
+
+      <!-- Settings Section -->
+      <div class="settings-section">
+        <h3 class="settings-title">⚙️ App Settings</h3>
+        <div class="settings-grid">
+          <!-- Logo Upload -->
+          <div class="settings-card">
+            <div class="settings-card-header">
+              <span>🎨 App Logo</span>
+            </div>
+            <div class="settings-preview">
+              <img id="logoPreview" src="logo.png" alt="Current Logo" class="settings-img logo-preview" />
+            </div>
+            <label class="upload-btn" for="logoUpload">
+              📁 Change Logo
+              <input type="file" id="logoUpload" accept="image/*" hidden />
+            </label>
+            <button id="resetLogo" class="btn-secondary btn-sm">🔄 Reset Default</button>
+          </div>
+
+          <!-- Writer Pic Upload -->
+          <div class="settings-card">
+            <div class="settings-card-header">
+              <span>👤 Writer Profile Picture</span>
+            </div>
+            <div class="settings-preview">
+              <img id="writerPreview" src="writer.png" alt="Writer Photo" class="settings-img writer-preview" />
+            </div>
+            <label class="upload-btn" for="writerUpload">
+              📁 Change Photo
+              <input type="file" id="writerUpload" accept="image/*" hidden />
+            </label>
+            <button id="resetWriter" class="btn-secondary btn-sm">🔄 Reset Default</button>
+          </div>
+
+          <!-- Writer Name -->
+          <div class="settings-card">
+            <div class="settings-card-header">
+              <span>✍️ Writer Info</span>
+            </div>
+            <div class="form-group" style="margin-top:12px">
+              <label for="writerNameSetting">Writer Name</label>
+              <input type="text" id="writerNameSetting" value="Dasari Srikanth" />
+            </div>
+            <div class="form-group">
+              <label for="writerDescSetting">Writer Title</label>
+              <input type="text" id="writerDescSetting" value="Telugu Story Writer & Creator" />
+            </div>
+            <button id="saveWriterInfo" class="btn-primary btn-sm">💾 Save Info</button>
+          </div>
+
+          <!-- About Writer Edit -->
+          <div class="settings-card settings-card-wide">
+            <div class="settings-card-header">
+              <span>✍️ About the Writer</span>
+            </div>
+            <div class="form-group" style="margin-top:12px">
+              <label for="aboutWriterSetting">About Writer Content (HTML supported)</label>
+              <textarea id="aboutWriterSetting" rows="8" placeholder="Write about the story writer..."></textarea>
+            </div>
+            <button id="saveAboutWriter" class="btn-primary btn-sm">💾 Save About Writer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ADD/EDIT STORY VIEW ===== -->
+  <section id="storyForm" class="view">
+    <header class="admin-header">
+      <button id="formBackBtn" class="icon-btn" aria-label="Back to dashboard">
+        <span>←</span>
+      </button>
+      <h2 id="formTitle">➕ Add New Story</h2>
+      <div></div>
+    </header>
+    <div class="form-container">
+      <form id="storyFormEl">
+        <input type="hidden" id="storyId" value="" />
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="storyTitleInput">📝 Story Title / కథ పేరు</label>
+            <input type="text" id="storyTitleInput" placeholder="Enter story title..." required />
+          </div>
+          <div class="form-group">
+            <label for="storyCategoryInput">📂 Category / విభాగం</label>
+            <select id="storyCategoryInput" required>
+              <option value="">Select Category</option>
+              <option value="kids">👶 పిల్లల కథలు (Kids)</option>
+              <option value="moral">🎓 నీతి కథలు (Moral)</option>
+              <option value="horror">👻 భయానక కథలు (Horror)</option>
+              <option value="adventure">⚔️ సాహస కథలు (Adventure)</option>
+              <option value="comedy">😂 హాస్య కథలు (Comedy)</option>
+              <option value="inspirational">🌟 ప్రేరణాత్మక కథలు (Inspirational)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="storyAuthorInput">✍️ Author / రచయిత</label>
+            <input type="text" id="storyAuthorInput" placeholder="Author name..." value="Dasari Srikanth" />
+          </div>
+          <div class="form-group">
+            <label for="storyReadTime">⏱️ Read Time</label>
+            <input type="text" id="storyReadTime" placeholder="e.g. 5 min" value="5 min" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="storyEmoji">🎨 Cover Emoji</label>
+            <input type="text" id="storyEmoji" placeholder="e.g. 📖" value="📖" />
+          </div>
+          <div class="form-group">
+            <label for="storyGradient">🌈 Cover Gradient</label>
+            <select id="storyGradient">
+              <option value="linear-gradient(135deg, #667eea, #764ba2)">Purple Blue</option>
+              <option value="linear-gradient(135deg, #f093fb, #f5576c)">Pink Red</option>
+              <option value="linear-gradient(135deg, #4facfe, #00f2fe)">Blue Cyan</option>
+              <option value="linear-gradient(135deg, #43e97b, #38f9d7)">Green Teal</option>
+              <option value="linear-gradient(135deg, #fa709a, #fee140)">Pink Yellow</option>
+              <option value="linear-gradient(135deg, #a18cd1, #fbc2eb)">Lavender</option>
+              <option value="linear-gradient(135deg, #ff9a9e, #fecfef)">Soft Pink</option>
+              <option value="linear-gradient(135deg, #2c3e50, #4ca1af)">Dark Teal</option>
+              <option value="linear-gradient(135deg, #1a1a2e, #e94560)">Dark Red</option>
+              <option value="linear-gradient(135deg, #0f0c29, #302b63, #24243e)">Deep Purple</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="storyExcerpt">📋 Short Description / సంక్షిప్త వివరణ</label>
+          <textarea id="storyExcerpt" rows="2" placeholder="Enter a short description of the story..."
+            required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="storyContentInput">📖 Full Story Content / పూర్తి కథ</label>
+          <p class="form-hint">Separate paragraphs with a blank line</p>
+          <textarea id="storyContentInput" rows="12"
+            placeholder="Enter the full story content here... (separate paragraphs with blank lines)"
+            required></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" id="cancelFormBtn" class="btn-secondary">Cancel</button>
+          <button type="submit" class="btn-primary">💾 Save Story</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT AUTHOR VIEW ===== -->
+  <section id="aboutAuthor" class="view">
+    <header class="page-header">
+      <button class="icon-btn page-back-btn" data-goback="library" aria-label="Back to Home">
+        <span>←</span>
+      </button>
+      <h2>✍️ About the Author</h2>
+      <div></div>
+    </header>
+    <div class="about-page">
+      <div class="about-hero">
+        <div class="about-hero-bg"></div>
+        <img src="writer.png" alt="Dasari Srikanth" class="about-hero-avatar" id="aboutHeroAvatar" />
+        <h2 class="about-hero-name" id="aboutHeroName">Dasari Srikanth</h2>
+        <p class="about-hero-title">Telugu Story Writer & Creator</p>
+        <p class="about-hero-tagline">"తెలుగు కథలతో హృదయాలను తాకడం నా లక్ష్యం"</p>
+      </div>
+      <div class="about-content-grid">
+        <div class="about-card">
+          <div class="about-card-icon">📝</div>
+          <h3>Writing Journey</h3>
+          <p>Dasari Srikanth is a passionate Telugu story writer who believes in the power of storytelling. With roots
+            in the rich literary tradition of Telugu literature, he crafts stories that resonate with readers of all
+            ages.</p>
+        </div>
+        <div class="about-card">
+          <div class="about-card-icon">🏆</div>
+          <h3>Achievements</h3>
+          <p>Recognized as an inspiring voice in modern Telugu literature, Srikanth has touched thousands of hearts with
+            stories that blend tradition, morality, and adventure. His works span kids stories, moral tales, horror
+            fiction, and inspirational narratives.</p>
+        </div>
+        <div class="about-card">
+          <div class="about-card-icon">❤️</div>
+          <h3>Passion</h3>
+          <p>With a deep love for the Telugu language and culture, every story is woven with care, emotion, and purpose
+            — from humorous adventures to spine-tingling horror, every genre is mastered with finesse.</p>
+        </div>
+        <div class="about-card">
+          <div class="about-card-icon">💡</div>
+          <h3>Inspiration</h3>
+          <p>Drawing inspiration from Telugu folklore, everyday life, and the rich cultural heritage of India, Dasari
+            Srikanth continues to inspire the next generation of readers and writers through the magic of storytelling.
+          </p>
+        </div>
+      </div>
+      <div class="about-quote">
+        <blockquote>"ప్రతి కథలో ఒక నీతి ఉంటుంది. ప్రతి పాఠకుడిలో ఒక రచయిత దాగి ఉంటాడు. కథలు చదవండి, జీవితాన్ని
+          ఆస్వాదించండి!"</blockquote>
+        <cite>— Dasari Srikanth</cite>
+      </div>
+    </div>
+    <footer class="app-footer">
+      <p>© 2024 తొలిపరిచయం(The Story Book) | Written by <strong>Dasari Srikanth</strong></p>
+    </footer>
+  </section>
+
+  <!-- ===== CONTACT VIEW ===== -->
+  <section id="contact" class="view">
+    <header class="page-header">
+      <button class="icon-btn page-back-btn" data-goback="library" aria-label="Back to Home">
+        <span>←</span>
+      </button>
+      <h2>📬 Contact Us</h2>
+      <div></div>
+    </header>
+    <div class="contact-page">
+      <div class="contact-hero">
+        <h2>Get in Touch</h2>
+        <p>మీ అభిప్రాయాలు, సూచనలు మాకు చాలా విలువైనవి. మమ్మల్ని సంప్రదించండి!</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-form-card">
+          <h3>📧 Send a Message</h3>
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="contactName">Your Name</label>
+              <input type="text" id="contactName" placeholder="Enter your name..." required />
+            </div>
+            <div class="form-group">
+              <label for="contactEmail">Email Address</label>
+              <input type="email" id="contactEmail" placeholder="Enter your email..." required />
+            </div>
+            <div class="form-group">
+              <label for="contactSubject">Subject</label>
+              <input type="text" id="contactSubject" placeholder="What's this about?" required />
+            </div>
+            <div class="form-group">
+              <label for="contactMessage">Message / సందేశం</label>
+              <textarea id="contactMessage" rows="5" placeholder="Write your message here..." required></textarea>
+            </div>
+            <button type="submit" class="btn-primary">📨 Send Message</button>
+          </form>
+        </div>
+        <div class="contact-info-card">
+          <h3>📌 Connect With Us</h3>
+          <div class="contact-info-item">
+            <span class="contact-icon">✍️</span>
+            <div>
+              <strong>Author</strong>
+              <p>Dasari Srikanth</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <span class="contact-icon">📚</span>
+            <div>
+              <strong>Project</strong>
+              <p>తొలిపరిచయం (The Story Book)</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <span class="contact-icon">🌐</span>
+            <div>
+              <strong>Language</strong>
+              <p>Telugu (తెలుగు)</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <span class="contact-icon">💌</span>
+            <div>
+              <strong>Purpose</strong>
+              <p>Spreading Telugu stories & culture worldwide</p>
+            </div>
+          </div>
+          <div class="contact-social">
+            <h4>Follow & Share</h4>
+            <div class="social-links">
+              <a href="#" class="social-btn" title="Share on WhatsApp">💬 WhatsApp</a>
+              <a href="#" class="social-btn" title="Share on Instagram">📸 Instagram</a>
+              <a href="#" class="social-btn" title="Share on YouTube">🎬 YouTube</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="app-footer">
+      <p>© 2024 తొలిపరిచయం(The Story Book) | Written by <strong>Dasari Srikanth</strong></p>
+    </footer>
+  </section>
+
+  <script src="stories.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

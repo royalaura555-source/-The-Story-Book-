@@ -1,0 +1,80 @@
+# OYE STORIES — Walkthrough
+
+## What Was Built
+
+A complete **Telugu story book web app** called **"OYE STORIES"** by **Dasari Srikanth** — built with vanilla HTML, CSS, and JavaScript.
+
+### Files Modified
+
+| File | Description |
+|------|-------------|
+| [index.html](file:///c:/Users/admin/OneDrive/Desktop/dust/storybook-app/index.html) | 5 views: Home, Reader, Admin Login, Dashboard, Add/Edit Form |
+| [style.css](file:///c:/Users/admin/OneDrive/Desktop/dust/storybook-app/style.css) | Premium CSS with dark/light themes, glassmorphism, animations |
+| [stories.js](file:///c:/Users/admin/OneDrive/Desktop/dust/storybook-app/stories.js) | 8 Telugu stories across 6 categories |
+| [app.js](file:///c:/Users/admin/OneDrive/Desktop/dust/storybook-app/app.js) | Full app logic: routing, search, CRUD, likes, bookmarks |
+
+---
+
+## Features
+
+### 👤 User Features
+- View Telugu story cards in a responsive grid
+- Search stories by title, author, or category
+- Filter by category: పిల్లల, నీతి, భయానక, ప్రేమ, సాహస, హాస్య
+- Read full stories with page-by-page navigation
+- Adjust font size, like & bookmark stories
+- Dark/Light mode toggle (persisted in localStorage)
+- Keyboard navigation (arrow keys, Escape)
+
+### 🔐 Admin Features
+- Secure login (password: `oye@admin2024`)
+- Dashboard with stats (total stories, categories, likes, bookmarks)
+- Add new stories with full form
+- Edit existing stories
+- Delete stories with confirmation dialog
+- Toast notifications for all actions
+
+---
+
+## Screenshots
+
+````carousel
+![Home page in light mode — OYE STORIES with Telugu story cards](C:/Users/admin/.gemini/antigravity/brain/df0d20d7-ea99-4288-b664-9cc6123e0c61/home_page.png)
+<!-- slide -->
+![Dark mode — Elegant dark theme with purple accents](C:/Users/admin/.gemini/antigravity/brain/df0d20d7-ea99-4288-b664-9cc6123e0c61/dark_mode.png)
+<!-- slide -->
+![Admin Login — Secure password protected access](C:/Users/admin/.gemini/antigravity/brain/df0d20d7-ea99-4288-b664-9cc6123e0c61/admin_login.png)
+<!-- slide -->
+![Admin Dashboard — Stats, stories table with Edit/Delete](C:/Users/admin/.gemini/antigravity/brain/df0d20d7-ea99-4288-b664-9cc6123e0c61/admin_dashboard.png)
+````
+
+## Recordings
+
+### User Flow — Home, Categories, Reader
+![User side testing — browsing stories, filtering, reading](C:/Users/admin/.gemini/antigravity/brain/df0d20d7-ea99-4288-b664-9cc6123e0c61/home_page_test_1771663050224.webp)
+
+### Admin Flow — Login, Dashboard, Add Story
+![Admin panel testing — login, dashboard, add story form](C:/Users/admin/.gemini/antigravity/brain/df0d20d7-ea99-4288-b664-9cc6123e0c61/admin_panel_test_1771663132125.webp)
+
+---
+
+## Verification Results
+
+| Test | Result |
+|------|--------|
+| Home page branding "OYE STORIES" + "Dasari Srikanth" | ✅ |
+| Telugu text rendering (Noto Sans Telugu) | ✅ |
+| 8 story cards displayed in grid | ✅ |
+| Category filtering (7 pills) | ✅ |
+| Search functionality | ✅ |
+| Story reader with pagination | ✅ |
+| Dark/Light mode toggle | ✅ |
+| Admin login with password | ✅ |
+| Admin dashboard with stats | ✅ |
+| Add/Edit/Delete story forms | ✅ |
+| Toast notifications | ✅ |
+| Responsive layout | ✅ |
+
+## How to Access
+
+Open [index.html](file:///c:/Users/admin/OneDrive/Desktop/dust/storybook-app/index.html) in any browser. Admin password: `oye@admin2024`
