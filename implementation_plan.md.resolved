@@ -1,0 +1,71 @@
+# OYE STORIES — Feature Updates
+
+Update the OYE STORIES web app with profile picture editing, an About Writer section, and Love Stories category removal.
+
+## Proposed Changes
+
+### Profile Picture Edit Functionality
+
+The HTML admin settings UI already exists in [index.html](file:///c:/Users/admin/OneDrive/Desktop/dust/storybook-app/index.html) (lines 182–231) with logo/writer upload inputs and reset buttons, but **no JS handlers or CSS styles** exist yet.
+
+#### [MODIFY] [app.js](file:///c:/Users/admin/OneDrive/Desktop/dust/storybook-app/app.js)
+
+- Add `STORAGE_KEYS` entries: `LOGO_IMG` and `WRITER_IMG`
+- Add DOM element references for: `logoUpload`, `writerUpload`, `resetLogo`, `resetWriter`, `logoPreview`, `writerPreview`, `saveWriterInfo`, `writerNameSetting`, `writerDescSetting`
+- Add `handleImageUpload(inputEl, previewEl, storageKey)` — reads file via `FileReader`, converts to base64, saves to localStorage, updates preview
+- Add `loadSavedImages()` — on init, loads saved logo/writer images from localStorage and applies them to homepage + admin preview
+- Add `resetImage(storageKey, previewEl, defaultSrc)` — removes from localStorage and resets to default
+- Add `saveWriterInfo()` — saves writer name/description to localStorage, updates homepage writer section
+- Bind event listeners for `logoUpload`, `writerUpload`, `resetLogo`, `resetWriter`, `saveWriterInfo`
+
+#### [MODIFY] [style.css](file:///c:/Users/admin/OneDrive/Desktop/dust/storybook-app/style.css)
+
+- Add complete CSS for `.settings-section`, `.settings-title`, `.settings-grid`, `.settings-card`, `.settings-card-header`, `.settings-preview`, `.settings-img`, `.upload-btn`, `.btn-sm`
+- Responsive grid for settings cards
+
+---
+
+### About the Writer Section
+
+#### [MODIFY] [index.html](file:///c:/Users/admin/OneDrive/Desktop/dust/storybook-app/index.html)
+
+- Add an "About the Writer" section between the writer profile and the search bar on the homepage, with info about Dasari Srikanth (achievements, passion, storytelling skills)
+- Add an editable textarea for the About Writer content in Admin Dashboard settings
+
+#### [MODIFY] [app.js](file:///c:/Users/admin/OneDrive/Desktop/dust/storybook-app/app.js)
+
+- Add `STORAGE_KEYS.ABOUT_WRITER`
+- Load/save the about text from localStorage
+- Admin can edit and save the about writer text
+
+#### [MODIFY] [style.css](file:///c:/Users/admin/OneDrive/Desktop/dust/storybook-app/style.css)
+
+- Add styling for `.about-writer` section (decorative card with gradient border)
+
+---
+
+### Remove Love Stories Category
+
+#### [MODIFY] [index.html](file:///c:/Users/admin/OneDrive/Desktop/dust/storybook-app/index.html)
+
+- Remove the love category pill button (line 70)
+- Remove the love option from story form dropdown (line 260)
+- Update meta description to exclude ప్రేమ కథలు
+
+#### [MODIFY] [stories.js](file:///c:/Users/admin/OneDrive/Desktop/dust/storybook-app/stories.js)
+
+- Remove story id 6 ("మొదటి ప్రేమ లేఖ") from `DEFAULT_STORIES`
+- Remove `love` entry from `CATEGORY_NAMES` map
+
+---
+
+## Verification Plan
+
+### Browser Testing
+
+Open the app in a browser and verify:
+
+1. **Profile Pictures**: In Admin Panel, upload a new logo → preview updates → reload page → logo persists. Upload writer photo → same. Click Reset → images revert. Save writer name/title → homepage updates.
+2. **About Writer**: Homepage shows "About the Writer" section with Dasari Srikanth info. Admin panel shows editable textarea. Edit and save → homepage updates. Reload → persists.
+3. **Love Stories Removed**: No "ప్రేమ కథలు" pill on homepage. No love option in story form. No love stories in grid. Category filter doesn't show love.
+4. **Existing Features**: Stories display, search works, read view works, theme toggle works, admin login/logout works, add/edit/delete stories work.
